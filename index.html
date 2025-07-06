@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delphi</title>
+</head>
+<body>
+  <h1>Delphi - Joshua's Corner of the Internet</h1>
+  <ul id="blog-list"></ul>
+
+  <script>
+    const posts = [
+      { title: "Behind the Making of Delphi", file: "06072025.md" },
+      { title: "First Post", file: "test.md" },
+      { title: "Second Post", file: "post-2.md" },
+      { title: "Third Post", file: "post-3.md" }
+    ];
+
+    const ul = document.getElementById('blog-list');
+    posts.forEach(post => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `blog.html?post=${post.file}`;
+      a.textContent = post.title;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  </script>
+</body>
+</html>

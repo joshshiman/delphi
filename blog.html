@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="content">Loading...</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const post = params.get("post");
+
+    if (post) {
+      fetch(`/blogs/${post}`)
+        .then(res => res.text())
+        .then(md => {
+          document.getElementById("content").innerHTML = marked.parse(md);
+        })
+        .catch(() => {
+          document.getElementById("content").innerText = "Error loading post.";
+        });
+    } else {
+      document.getElementById("content").innerText = "No post selected.";
+    }
+  </script>
+</body>
+</html>
