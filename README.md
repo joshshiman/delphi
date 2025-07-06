@@ -17,6 +17,7 @@ How folders and files are laid out
 
 ```bash
 my-blog/
+├── blog.html              # Viewer for Markdown blogs
 ├── index.html              # Homepage
 ├── rss.xml                 # RSS feed
 ├── /blogs/                 # Folder for blog posts
